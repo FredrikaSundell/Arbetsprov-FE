@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react'
+import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
+import WeatherListItem from './components/weatherListItem/WeatherListItem'
+import WeatherForm from './components/weatherForm/WeatherForm'
 import WeatherList from './components/weatherList/WeatherList'
-import AddWeatherForm from './components/addWeatherForm/AddWeatherForm'
 import './app.scss'
+import AddButton from './components/buttons/AddButton'
 
 function App() {
   const [todos, setTodos] = useState(() => {
@@ -49,21 +52,24 @@ function App() {
   return (
     <>
       <div className="weather-container">
-        <AddWeatherForm
-          weather={weather}
-          onAddInputChange={handleAddInputChange}
-          onAddFormSubmit={handleAddFormSubmit}
-        />
-
-        <ul className="weather-list">
+        <Header />
+        <div className="weather-input-container">
+          <WeatherForm
+            weather={weather}
+            onAddInputChange={handleAddInputChange}
+            onAddFormSubmit={handleAddFormSubmit}
+          />
+          <AddButton />
+        </div>
+        <WeatherList>
           {todos.map((weather) => (
-            <WeatherList
+            <WeatherListItem
               key={weather.id}
               weather={weather}
               onDeleteClick={handleDeleteClick}
             />
           ))}
-        </ul>
+        </WeatherList>
       </div>
       <Footer />
     </>

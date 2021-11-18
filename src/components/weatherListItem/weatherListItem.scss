@@ -1,0 +1,20 @@
+li {
+  border: solid red;
+  width: 375px;
+  height: 181px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  + li {
+    margin-left: 30px;
+  }
+}
+
+.cityname {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

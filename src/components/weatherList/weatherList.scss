@@ -1,0 +1,20 @@
+ul {
+  list-style: none;
+  border: solid green;
+  text-transform: uppercase;
+  display: flex;
+  padding: 0;
+}
+li {
+  border: solid red;
+  width: 375px;
+  height: 181px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  + li {
+    margin-left: 30px;
+  }
+}

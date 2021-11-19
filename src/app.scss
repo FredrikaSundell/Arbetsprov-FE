@@ -1,12 +1,14 @@
 @import './components/Variables/Variables.scss';
 
 .weather-container {
-  background-color: rgba(0, 0, 0, 0.25);
-  position: absolute;
+  background-color: $baseGrey;
   width: 1200px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  margin: auto;
+  height: 100vh;
 }
 
 .weather-input-container {

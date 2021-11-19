@@ -1,20 +1,29 @@
+@import '../Variables/Variables.scss';
+
 li {
   border: solid red;
-  width: 375px;
-  height: 181px;
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 50px;
-  + li {
-    margin-left: 30px;
-  }
 }
 
 .cityname {
+  color: $baseWhite;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.celsius {
+  position: static;
+  width: 96px;
+  height: 97px;
+  left: 0px;
+  top: 0px;
+  font-weight: 500;
+  font-size: 62.8571px;
+  line-height: 154%;
 }

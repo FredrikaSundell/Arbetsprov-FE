@@ -1,11 +1,21 @@
+@import '../Mixin/mixin.scss';
+
 ul {
   list-style: none;
   border: solid green;
   text-transform: uppercase;
-  width: 100%;
   max-width: 1200px;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-gap: 30px;
+
+  @include for-phone-only {
+    grid-template-columns: repeat(auto-fit, minmax(335px, 1fr));
+    grid-gap: 20px;
+    max-width: 400px;
+  }
+  @include for-tablet-portrait-up {
+    width: 100%;
+  }
 }

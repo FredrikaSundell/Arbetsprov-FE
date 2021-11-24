@@ -1,4 +1,5 @@
 @import '../Variables/Variables.scss';
+@import '../Mixin/mixin.scss';
 
 li {
   border: solid red;
@@ -7,6 +8,10 @@ li {
   justify-content: space-between;
   align-items: center;
   padding: 50px;
+
+  @include for-phone-only {
+    height: 120px;
+  }
 }
 
 .cityname {
@@ -21,8 +26,6 @@ li {
   position: static;
   width: 96px;
   height: 97px;
-  left: 0px;
-  top: 0px;
   font-weight: 500;
   font-size: 62.8571px;
   line-height: 154%;

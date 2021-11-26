@@ -1,9 +1,17 @@
+@import '../Mixin/mixin.scss';
+
 .weather-icon {
   width: 80px;
   height: 80px;
 
+  @include phone {
+    width: 60px;
+    height: 60px;
+  }
+
   svg {
     width: 100%;
     height: 100%;
+    margin-right: 31px;
   }
 }

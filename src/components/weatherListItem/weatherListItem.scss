@@ -21,6 +21,11 @@ li {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @include phone {
+    margin-left: 31px;
+    align-items: baseline;
+  }
 }
 
 .celsius {
@@ -30,4 +35,10 @@ li {
   font-weight: 500;
   font-size: 62.8571px;
   line-height: 154%;
+
+  @include phone {
+    width: 137px;
+    height: 71.85px;
+    font-size: 46.56px;
+  }
 }

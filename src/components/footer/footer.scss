@@ -1,3 +1,5 @@
+@import '../Mixin/mixin.scss';
+
 footer {
   position: absolute;
   left: 0;
@@ -6,4 +8,14 @@ footer {
   align-items: center;
   display: flex;
   justify-content: center;
+
+  @include phone {
+    bottom: 32px;
+  }
+}
+
+.isotop-logo {
+  @include phone {
+    width: 86.4px;
+  }
 }

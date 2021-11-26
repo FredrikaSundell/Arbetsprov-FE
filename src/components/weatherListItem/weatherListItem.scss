@@ -9,8 +9,9 @@ li {
   align-items: center;
   padding: 50px;
 
-  @include for-phone-only {
+  @include phone {
     height: 120px;
+    padding: 30px;
   }
 }
 

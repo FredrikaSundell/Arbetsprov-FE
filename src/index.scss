@@ -3,12 +3,14 @@
 
 * {
   box-sizing: border-box;
+  width: 100%;
 }
 
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   background-color: $baseGrey;
+
   h1 {
     font-size: 35px;
     line-height: 108%;

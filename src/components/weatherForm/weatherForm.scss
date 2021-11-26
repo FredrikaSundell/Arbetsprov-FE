@@ -1,6 +1,14 @@
 @import '../Variables/Variables.scss';
 @import '../Mixin/mixin.scss';
 
+form {
+  width: 470px;
+
+  @include phone {
+    width: 335px;
+  }
+}
+
 input {
   background: $baseWhite;
   padding: 20px 0px 20px 10px;
@@ -11,8 +19,12 @@ input {
   text-align: left;
   flex-wrap: wrap;
 
-  @include for-phone-only {
-    width: 198px;
+  @include phone {
+    width: 210px;
+  }
+
+  @include tablet {
+    width: 325px;
   }
 }
 .place {

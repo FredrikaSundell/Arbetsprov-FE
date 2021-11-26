@@ -59,7 +59,7 @@ function App() {
             onAddInputChange={handleAddInputChange}
             onAddFormSubmit={handleAddFormSubmit}
           />
-          <AddButton />
+          <AddButton onClick={handleAddFormSubmit} />
         </div>
         <WeatherList>
           {todos.map((weather) => (

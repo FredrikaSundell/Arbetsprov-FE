@@ -7,8 +7,8 @@ function WeatherListItem({ weather, onDeleteClick }) {
     <li key={weather.id}>
       <Icon />
       <div className="cityname">
-        <span className="celsius">10</span>
-        {weather.text}
+        <span className="celsius">{weather.temp}°</span>
+        {weather.location}
       </div>
       <CloseButton onClick={() => onDeleteClick(weather.id)} />
     </li>

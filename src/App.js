@@ -8,45 +8,56 @@ import './app.scss'
 import AddButton from './components/buttons/AddButton'
 
 function App() {
-  const [todos, setTodos] = useState(() => {
-    const savedTodos = localStorage.getItem('todos')
-    if (savedTodos) {
-      return JSON.parse(savedTodos)
+  const [weathers, setWeathers] = useState(() => {
+    const savedWeathers = localStorage.getItem('weathers')
+    if (savedWeathers) {
+      return JSON.parse(savedWeathers)
     } else {
       return []
     }
   })
-  const [weather, setWeather] = useState('')
+  const [input, setInput] = useState('')
+
+  const [error, setError] = useState(null)
 
   useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos))
-  }, [todos])
+    localStorage.setItem('weathers', JSON.stringify(weathers))
+  }, [weathers])
 
   function handleAddInputChange(e) {
-    setWeather(e.target.value)
+    setInput(e.target.value)
   }
 
-  function handleAddFormSubmit(e) {
+  async function handleAddFormSubmit(e) {
     e.preventDefault()
 
-    if (weather !== '') {
-      setTodos([
-        ...todos,
-        {
-          id: new Date(),
-          text: weather.trim(),
-        },
-      ])
-    }
+    const url = `http://api.weatherstack.com/current?access_key=${process.env.REACT_APP_WEATHERSTACK_API_KEY}&query=${input}`
 
-    setWeather('')
+    const data = await fetch(url).then((response) => response.json())
+
+    if (data.error) {
+      setError('Det finns ingen stad som matchar din sökning')
+    } else {
+      if (input !== '') {
+        setWeathers([
+          ...weathers,
+          {
+            id: new Date(),
+            location: data.location.name,
+            temp: data.current.temperature,
+          },
+        ])
+      }
+
+      setInput('')
+    }
   }
 
   function handleDeleteClick(id) {
-    const removeItem = todos.filter((weather) => {
+    const removeItem = weathers.filter((weather) => {
       return weather.id !== id
     })
-    setTodos(removeItem)
+    setWeathers(removeItem)
   }
 
   return (
@@ -55,14 +66,15 @@ function App() {
         <Header />
         <div className="weather-input-container">
           <WeatherForm
-            weather={weather}
+            weather={input}
             onAddInputChange={handleAddInputChange}
             onAddFormSubmit={handleAddFormSubmit}
           />
           <AddButton onClick={handleAddFormSubmit} />
         </div>
+        {error && <p>{error}</p>}
         <WeatherList>
-          {todos.map((weather) => (
+          {weathers.map((weather) => (
             <WeatherListItem
               key={weather.id}
               weather={weather}

@@ -1,10 +1,7 @@
-function WeatherList({ weather, onDeleteClick }) {
-  return (
-    <li key={weather.id}>
-      {weather.text}
-      <button onClick={() => onDeleteClick(weather.id)}>Delete</button>
-    </li>
-  )
+import './weatherList.scss'
+
+const WeatherList = ({ children }) => {
+  return <ul>{children}</ul>
 }
 
 export default WeatherList

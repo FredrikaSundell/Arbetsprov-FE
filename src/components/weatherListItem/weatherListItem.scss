@@ -1,0 +1,44 @@
+@import '../Variables/Variables.scss';
+@import '../Mixin/mixin.scss';
+
+li {
+  border: solid red;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+
+  @include phone {
+    height: 120px;
+    padding: 30px;
+  }
+}
+
+.cityname {
+  color: $baseWhite;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @include phone {
+    margin-left: 31px;
+    align-items: baseline;
+  }
+}
+
+.celsius {
+  position: static;
+  width: 96px;
+  height: 97px;
+  font-weight: 500;
+  font-size: 62.8571px;
+  line-height: 154%;
+
+  @include phone {
+    width: 137px;
+    height: 71.85px;
+    font-size: 46.56px;
+  }
+}

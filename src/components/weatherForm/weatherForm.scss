@@ -1,0 +1,33 @@
+@import '../Variables/Variables.scss';
+@import '../Mixin/mixin.scss';
+
+form {
+  width: 470px;
+
+  @include phone {
+    width: 335px;
+  }
+}
+
+input {
+  background: $baseWhite;
+  padding: 20px 0px 20px 10px;
+  border: none;
+  outline: none;
+  width: 470px;
+  font-size: 20px;
+  text-align: left;
+  flex-wrap: wrap;
+
+  @include phone {
+    width: 210px;
+  }
+
+  @include tablet {
+    width: 325px;
+  }
+}
+.place {
+  background-color: $baseWhite;
+  padding-left: 30px;
+}

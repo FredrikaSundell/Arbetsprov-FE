@@ -1,9 +1,24 @@
+@import '../Mixin/mixin.scss';
+@import '../Variables/Variables.scss';
+
 footer {
   position: absolute;
+  background-color: $baseGrey;
   left: 0;
   right: 0;
-  bottom: 50px;
+  bottom: 0px;
+  padding-bottom: 50px;
   align-items: center;
   display: flex;
   justify-content: center;
+
+  @include phone {
+    padding-bottom: 32px;
+  }
+}
+
+.isotop-logo {
+  @include phone {
+    width: 86.4px;
+  }
 }

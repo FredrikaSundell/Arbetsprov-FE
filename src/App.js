@@ -74,13 +74,15 @@ function App() {
         </div>
         {error && <p>{error}</p>}
         <WeatherList>
-          {weathers.map((weather) => (
-            <WeatherListItem
-              key={weather.id}
-              weather={weather}
-              onDeleteClick={handleDeleteClick}
-            />
-          ))}
+          {weathers
+            .sort((a, b) => a.temp - b.temp)
+            .map((weather) => (
+              <WeatherListItem
+                key={weather.id}
+                weather={weather}
+                onDeleteClick={handleDeleteClick}
+              />
+            ))}
         </WeatherList>
       </div>
       <Footer />

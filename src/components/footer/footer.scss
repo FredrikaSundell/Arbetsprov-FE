@@ -2,11 +2,7 @@
 @import '../Variables/Variables.scss';
 
 footer {
-  position: absolute;
   background-color: $baseGrey;
-  left: 0;
-  right: 0;
-  bottom: 0px;
   padding-bottom: 50px;
   align-items: center;
   display: flex;

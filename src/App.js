@@ -45,6 +45,9 @@ function App() {
             id: new Date(),
             location: data.location.name,
             temp: data.current.temperature,
+            conditions: data.current.weather_descriptions.map((cond) =>
+              cond.toLowerCase()
+            ),
           },
         ])
       }

@@ -2,12 +2,21 @@
 @import '../Mixin/mixin.scss';
 
 li {
-  border: solid red;
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 50px;
+
+  &.red {
+    background-color: $brandRed;
+  }
+  &.yellow {
+    background-color: $brandYellow;
+  }
+  &.blue {
+    background-color: $brandBlue;
+  }
 
   @include phone {
     height: 120px;

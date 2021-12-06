@@ -4,6 +4,21 @@ import './weatherListItem.scss'
 import clsx from 'clsx'
 
 function WeatherListItem({ weather, onDeleteClick }) {
+  let icon = ''
+  if (weather.conditions.some((cond) => cond.includes('clear'))) {
+    icon = 'sun'
+  } else if (weather.conditions.some((cond) => cond.includes('rain'))) {
+    icon = 'rain'
+  } else if (weather.conditions.some((cond) => cond.includes('snow'))) {
+    icon = 'snow'
+  } else if (
+    weather.conditions.some(
+      (cond) => cond.includes('cloudy') || cond.includes('overcast')
+    )
+  ) {
+    icon = 'cloudy'
+  }
+
   return (
     <li
       className={clsx({
@@ -14,7 +29,7 @@ function WeatherListItem({ weather, onDeleteClick }) {
           weather.conditions.some((cond) => cond.includes('rain')),
       })}
     >
-      <Icon />
+      <Icon icon={icon} />
       <div className="cityname">
         <span className="celsius">{weather.temp}°</span>
         {weather.location}

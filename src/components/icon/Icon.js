@@ -5,12 +5,16 @@ import Snow from './../icons/snow'
 import Fallback from './../icons/fallback'
 import './icon.scss'
 
-function Icon() {
-  return (
-    <div className="weather-icon">
-      <Sun />
-    </div>
-  )
+const icons = {
+  cloudy: <Cloudy />,
+  sun: <Sun />,
+  rain: <Rain />,
+  snow: <Snow />,
+  fallback: <Fallback />,
+}
+
+function Icon({ icon }) {
+  return <div className="weather-icon">{icons[icon] || icons.fallback}</div>
 }
 
 export default Icon
